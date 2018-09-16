@@ -1,0 +1,11 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+export { NgxTblModule } from './ngx-tbl.module';
+export { NgxTblComponent } from './ngx-tbl-component';
+export { NgxTblControl } from './ngx-tbl-control';
+export { NgxTblColumn } from './ngx-tbl-column.component';
+export { NgxTblPagination } from './ngx-tbl-pagination/ngx-tbl-pagination';
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25neC10YmwvIiwic291cmNlcyI6WyJwdWJsaWNfYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxPQUFPLEVBQUMsWUFBWSxFQUFDLE1BQU0sa0JBQWtCLENBQUE7QUFDN0MsT0FBTyxFQUFDLGVBQWUsRUFBQyxNQUFNLHFCQUFxQixDQUFBO0FBQ25ELE9BQU8sRUFBQyxhQUFhLEVBQUMsTUFBTSxtQkFBbUIsQ0FBQTtBQUMvQyxPQUFPLEVBQUMsWUFBWSxFQUFDLE1BQU0sNEJBQTRCLENBQUE7QUFDdkQsT0FBTyxFQUFDLGdCQUFnQixFQUFDLE1BQU0seUNBQXlDLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQge05neFRibE1vZHVsZX0gZnJvbSAnLi9uZ3gtdGJsLm1vZHVsZSdcbmV4cG9ydCB7Tmd4VGJsQ29tcG9uZW50fSBmcm9tICcuL25neC10YmwtY29tcG9uZW50J1xuZXhwb3J0IHtOZ3hUYmxDb250cm9sfSBmcm9tICcuL25neC10YmwtY29udHJvbCdcbmV4cG9ydCB7Tmd4VGJsQ29sdW1ufSBmcm9tICcuL25neC10YmwtY29sdW1uLmNvbXBvbmVudCdcbmV4cG9ydCB7Tmd4VGJsUGFnaW5hdGlvbn0gZnJvbSAnLi9uZ3gtdGJsLXBhZ2luYXRpb24vbmd4LXRibC1wYWdpbmF0aW9uJyJdfQ==

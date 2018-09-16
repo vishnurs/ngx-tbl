@@ -1,0 +1,22 @@
+{
+  "name": "ngx-tbl",
+  "version": "0.0.2",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0 || ^5.0.0",
+    "@angular/common": "^4.0.0 || ^5.0.0"
+  },
+  "dependencies": {
+    "rxjs": "5.5.6",
+    "tslib": "^1.7.1"
+  },
+  "main": "bundles/ngx-tbl.umd.js",
+  "module": "fesm5/ngx-tbl.js",
+  "es2015": "fesm2015/ngx-tbl.js",
+  "esm5": "esm5/ngx-tbl.js",
+  "esm2015": "esm2015/ngx-tbl.js",
+  "fesm5": "fesm5/ngx-tbl.js",
+  "fesm2015": "fesm2015/ngx-tbl.js",
+  "typings": "ngx-tbl.d.ts",
+  "metadata": "ngx-tbl.metadata.json",
+  "sideEffects": false
+}
