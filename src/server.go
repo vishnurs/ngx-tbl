@@ -7,6 +7,8 @@ import (
 
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
+
+	"strconv"
 )
 
 type country struct {
@@ -17,7 +19,7 @@ type country struct {
 
 type tblresp struct {
 	Rows  []country `json:"rows"`
-	Count int       `json:"count"`
+	Total int       `json:"total"`
 }
 
 func main() {
@@ -30,6 +32,10 @@ func main() {
 func getCountries(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	fmt.Printf("%# v", r.URL.Query().Get("limit"))
+	limit, _ := strconv.Atoi(r.URL.Query().Get("limit"))
+	//search := r.URL.Query().Get("search")
+	skip, _ := strconv.Atoi(r.URL.Query().Get("skip"))
 	db, err := mgo.Dial("localhost")
 	if err != nil {
 		panic(err)
@@ -37,8 +43,8 @@ func getCountries(w http.ResponseWriter, r *http.Request) {
 	defer db.Close()
 	c := []country{}
 	resp := tblresp{}
-	db.DB("mockdb").C("countries").Find(bson.M{}).All(&resp.Rows)
-	resp.Count, _ = db.DB("mockdb").C("countries").Find(bson.M{}).Count()
+	db.DB("mockdb").C("countries").Find(bson.M{}).Limit(limit).Skip(skip).All(&resp.Rows)
+	resp.Total, _ = db.DB("mockdb").C("countries").Find(bson.M{}).Count()
 	fmt.Println("Phone", c)
 	toSend, _ := json.Marshal(resp)
 	w.Write(toSend)
