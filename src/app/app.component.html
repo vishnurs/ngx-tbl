@@ -1,6 +1,7 @@
-
-<ngx-tbl [items]="countries$ | async" (load)="loadCountries($event)" [config]="tableConfig">
-  <ngx-tbl-column [name]="'ID'" [key]="'ID'" [sortable]="true"></ngx-tbl-column>
-  <ngx-tbl-column [name]="'Name'" [key]="'name'" [sortable]="true"></ngx-tbl-column>
-  <ngx-tbl-column [name]="'Capital'" [key]="'capital'" [sortable]="true"></ngx-tbl-column>
-</ngx-tbl>
+<div class="container">
+  <ngx-tbl [items]="countries$ | async" (load)="loadCountries($event)" [config]="tableConfig">
+    <ngx-tbl-column [name]="'ID'" [key]="'ID'" [sortable]="true"></ngx-tbl-column>
+    <ngx-tbl-column [name]="'Name'" [key]="'name'" [sortable]="true"></ngx-tbl-column>
+    <ngx-tbl-column [name]="'Capital'" [key]="'capital'" [sortable]="true"></ngx-tbl-column>
+  </ngx-tbl>
+</div>

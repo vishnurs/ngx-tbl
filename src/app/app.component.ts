@@ -12,15 +12,22 @@ export class AppComponent {
   title = 'app';
   tableConfig = {}
   countries$;
-  constructor(private http: HttpClient){
-    
+  constructor(private http: HttpClient) {
+
   }
 
   ngOnInit() {
-    
+
   }
-  loadCountries() {
-    this.countries$ = this.http.get('http://localhost:5000/getCountries')
+  loadCountries(params) {
+    let queryParams = {};
+    queryParams = new HttpParams()
+      .set('limit', params.limit)
+      .set('search', params.search)
+      .set('skip', params.skip)
+      .set('sort', !_.isEmpty(params.sort) ? (_.keys(params.sort)[0] + ':' + _.values(params.sort)[0]) : '')
+
+    this.countries$ = this.http.get('http://localhost:5000/getCountries', { params: queryParams })
   }
-  
+
 }
