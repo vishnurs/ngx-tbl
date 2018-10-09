@@ -7,4 +7,24 @@
 
 `npm install ngx-tbl --save`
 
+### Quick Start
+
+```
+import { NgModule } from "@angular/core";
+import { NgxTblModule } from '@ngx-tbl';
+...
+
+@NgModule({
+    imports: [
+        ...
+        NgxTblModule
+    ],
+    ...
+})
+export class AppModule {
+
+}
+```
+
+
 ### Documentation
