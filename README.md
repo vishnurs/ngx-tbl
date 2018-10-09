@@ -1,8 +1,7 @@
 # ngx-tbl <a href="https://badge.fury.io/js/ngx-tbl"><img src="https://badge.fury.io/js/ngx-tbl.svg" alt="npm version" height="18"></a>
 
 ## Angular2+ table component with Server Side Pagination, Search and Sorting
-
-
+*_Supports Create, Update and Delete out of the box_*
 
 ### Installation
 
@@ -66,7 +65,10 @@ items <Observable> - Table rows, should be an observable, which should emit an a
 config - Configurable Options
 
 #### Outputs
-load   <EventEmitter<any>> - Emitted on load, search and while pagination
-edit   <EventEmitter<any>> - 
-add    <EventEmitter<any>>
-delete <EventEmitter<any>>
+load   _<EventEmitter<any>>_ - Emitted on load, search and pagination
+  
+edit   _<EventEmitter<any>>_ - Emit this while editing a row
+  
+add    _<EventEmitter<any>>_ - Emit while adding a new row
+  
+delete _<EventEmitter<any>>_ - Emit while deleting a row
