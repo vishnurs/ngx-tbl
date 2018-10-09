@@ -59,7 +59,9 @@ export class NgxTblPagination {
     if (page < 1 || page > this.pager.totalPages) {
       return;
     }
-    this.pageChanged.emit(page);
+    setTimeout(() => {
+      this.pageChanged.emit(page);
+    })
     this.pager = this.getPager(this.total, page, _.toNumber(this.limit));
   }
   
@@ -67,8 +69,8 @@ export class NgxTblPagination {
   }
 
   ngOnInit() {
-    this.resetPagination.subscribe(() => {
-      this.reset = true;
+    this.resetPagination.subscribe((reset) => {
+      this.reset = reset;
     })
   }
 
@@ -105,7 +107,7 @@ export class NgxTblPagination {
     let pages = _.range(startPage, endPage + 1);
 
     let endCount = startIndex + this.limit;
-    if (endCount > this.total) { endCount = this.total }
+    //if (endCount > this.total) { console.log('seting total', this.total);endCount = this.total }
     return {
       totalItems: totalItems,
       currentPage: currentPage,

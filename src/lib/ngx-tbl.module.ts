@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { NgxTblComponent } from './ngx-tbl-component';
 import { NgxTblColumn } from './ngx-tbl-column.component';
@@ -9,7 +9,8 @@ import { NgxTblPagination } from './ngx-tbl-pagination/ngx-tbl-pagination';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [
     NgxTblComponent,

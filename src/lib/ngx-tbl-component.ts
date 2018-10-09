@@ -5,13 +5,26 @@ import {
 import { Subject } from 'rxjs/Subject'
 import { Observable } from 'rxjs/Observable';
 import { NgxTblColumn } from './ngx-tbl-column.component';
-import { debounceTime, map } from 'rxjs/operators'
+import { debounceTime, map, tap } from 'rxjs/operators'
 
 import * as _ from 'lodash';
 
 @Component({
   selector: 'ngx-tbl',
   template: `
+  <div class="row">
+  <div class="col-md-3 col-sm-3 col-lg-3">
+    <input placeholder="Search" type="search" class="form-control" [(ngModel)]="searchParam" (ngModelChange)="search()">
+  </div>
+  <div class="col-md-9 col-sm-9 col-lg-9">
+    <select class="form-control" style="float:right;width: 65px;" [(ngModel)]="limit" (ngModelChange)="limitChange()">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+      <option value="50">50</option>
+    </select>
+  </div>
+  </div>
   <table class="table table-striped">
   <thead>
     <tr>
@@ -51,7 +64,9 @@ export class NgxTblComponent {
   searchParam: string;
   private subject = new Subject<any>();
   resetPagination: Observable<any>;
+  private pageNo;
   private debouncer = new Subject();
+  private debouncerObs: Observable<any>;
   private deleteRow: any;
 
   @ViewChild('deleteConfirmModal') deleteConfirmModal: any;
@@ -72,9 +87,10 @@ export class NgxTblComponent {
 
   constructor() {
     this.resetPagination = this.subject.asObservable();
+    this.debouncerObs = this.debouncer.asObservable()
     this.debouncer.pipe(
-      debounceTime(300),
-      map(val => this.loadData()))
+      debounceTime(300)
+    ).subscribe(val => this.loadData())
   }
 
   ngOnInit() {
@@ -87,7 +103,8 @@ export class NgxTblComponent {
 
   search() {
     this.subject.next(true);
-    this.debouncer.next()
+    this.debouncer.next(true)
+    console.log('searchedd!!')
   }
 
   limitChange() {
@@ -112,8 +129,8 @@ export class NgxTblComponent {
   }
 
   editRow(item: any, index: any) {
-    this.edit.emit({ item: _.clone(item), tableParams: this.getQueryParams(1) });
-    this.subject.next(true);
+    this.edit.emit({ item: _.clone(item), tableParams: this.getQueryParams(this.pageNo) });
+    this.subject.next(false);
   }
 
   addNew() {
@@ -122,7 +139,7 @@ export class NgxTblComponent {
   }
 
   getQueryParams(currentPage: any) {
-    //this.pageNo = currentPage;
+    this.pageNo = currentPage;
     return { search: this.searchParam || '', limit: this.limit, skip: (currentPage - 1) * this.limit, sort: this.sort };
   }
 
@@ -142,7 +159,7 @@ export class NgxTblComponent {
         this.sort = {};
         this.sort[column.key] = 1;
       }
-      this.loadData(); //this.pageNo
+      this.loadData(this.pageNo);
     }
   }
 }

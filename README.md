@@ -48,7 +48,7 @@ export class AppComponent {
 }
 ```
 
-##### AppComponent.html
+###### AppComponent.html
 ```
 <ngx-tbl [items]="countries$ | async" (load)="loadCountries($event)" [config]="tableConfig">
   <ngx-tbl-column [name]="'ID'" [key]="'ID'" [sortable]="true"></ngx-tbl-column>
