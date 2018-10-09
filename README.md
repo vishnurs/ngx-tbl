@@ -59,7 +59,7 @@ export class AppComponent {
 
 ### Documentation
 
-##### Inputs
+#### Inputs
 
 items <Observable> - Table rows, should be an observable, which should emit an array
 config - Configurable Options

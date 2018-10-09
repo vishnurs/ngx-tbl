@@ -8,10 +8,7 @@ import { NgxTblColumn } from './ngx-tbl-column.component';
 import { debounceTime, map } from 'rxjs/operators'
 
 import * as _ from 'lodash';
-export interface itm {
-  rows?: any[];
-  total: number;
-}
+
 @Component({
   selector: 'ngx-tbl',
   template: `
@@ -33,21 +30,13 @@ export interface itm {
         [ngTemplateOutlet]="column.cellTemplate" [ngTemplateOutletContext]="{item: item}">
         </div>
       </td>
-      <td class="col-action" *ngIf="!config.allowAction || config.allowAction()">
-        <div class="btn-group" dropdown>
-          <button id="button-basic" dropdownToggle type="button" class="btn dropdown-toggle" *ngIf="config.showAction && config.showAction(item)"
-                  aria-controls="dropdown-basic">
-                  <i class="fa fa-cog"></i>
-          </button>
-          <ul id="dropdown-basic" class="dropdown-menu">
-            <li *ngIf="!config.allowEdit || config.allowEdit(item)" role="menuitem"><a class="dropdown-item" (click)="editRow(item, i)"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
-            <li *ngIf="!config.allowDelete || config.allowDelete(item)" role="menuitem"><a class="dropdown-item" (click)="confirmDelete(item)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
-          </ul>
-        </div>    
+      <td *ngIf="!config.allowAction || config.allowAction()">
+        <button class="btn btn-sm" (click)="editRow(item, i)">Edit</button>
+        <button class="btn btn-sm" (click)="confirmDelete(item)">Delete</button>
       </td>
     </tr>
     <tr *ngIf="_items?.total==0">
-      <td [attr.colspan]="columns.length" class="empty-ngx-table-msg">No records found</td>
+      <td [attr.colspan]="columns.length">No records found</td>
     </tr>
   </tbody>
   

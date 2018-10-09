@@ -21,7 +21,7 @@ declare var Math: any
   `],
   template: `
   <div class="row">
-  <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3 paging-info" *ngIf="total">
+  <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3" *ngIf="total">
     <span>showing {{this.pager.startIndex+1}} to {{this.pager.endCount}} of {{total}}</span>
   </div>
   <div class="col-md-9 col-xs-9 col-lg-9 col-sm-9">
