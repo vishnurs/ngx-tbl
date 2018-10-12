@@ -2,9 +2,11 @@
 
 ## Angular 5 table component
 
-*_Server Side Pagination, Search and Sorting_*
-*_Supports Create, Update and Delete out of the box_*
-*_Supports custom cell template_*
+- Server Side Pagination, Search and Sorting
+
+- Supports Create, Update and Delete out of the box
+
+- Supports custom cell template
 
 ### Installation
 
