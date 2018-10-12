@@ -1,4 +1,4 @@
-export interface items {
+export interface Items {
   rows: any[];
   total: number;
 }

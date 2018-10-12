@@ -1,5 +1,5 @@
-export interface config {
-  allowAction: Boolean | Function;
-  allowDelete: Boolean | Function;
-  allowCreate: Boolean | Function;
+export interface Config {
+  allowAction: () => boolean | boolean;
+  allowDelete: () => boolean | boolean;
+  allowCreate: () => boolean | boolean;
 }

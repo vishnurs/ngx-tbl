@@ -6,6 +6,8 @@ import { Subject } from 'rxjs/Subject'
 import { Observable } from 'rxjs/Observable';
 import { NgxTblColumn } from './ngx-tbl-column.component';
 import { debounceTime, map, tap } from 'rxjs/operators'
+import { Items } from './interfaces/items';
+import { Config } from './interfaces/config'
 
 import * as _ from 'lodash';
 
@@ -71,13 +73,13 @@ export class NgxTblComponent {
 
   @ViewChild('deleteConfirmModal') deleteConfirmModal: any;
   @Input()
-  set items(items: any[]) {
+  set items(items: Items) {
     this._items = items;
   }
   get items() {
     return this._items;
   }
-  @Input() config: any;
+  @Input() config: Config;
   @Output() update: EventEmitter<any> = new EventEmitter<any>();
   @Output() load: EventEmitter<any> = new EventEmitter<any>();
   @Output() edit: EventEmitter<any> = new EventEmitter();
@@ -145,7 +147,7 @@ export class NgxTblComponent {
 
   loadData(currentPage: number = 1) {
     setTimeout(() => {
-    this.load.emit(this.getQueryParams(currentPage));
+      this.load.emit(this.getQueryParams(currentPage));
     })
   }
 
