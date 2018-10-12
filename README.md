@@ -66,8 +66,9 @@ export class AppComponent {
 
 #### Inputs
 
-items <Observable> - Table rows, should be an observable, which should emit an array
-config - Configurable Options
+items <Observable<[Items](https://github.com/vishnurs/ngx-tbl/blob/master/src/lib/interfaces/items.ts)>> - Table rows and total items. This total returned from server is used for pagination.
+
+config<[Config](https://github.com/vishnurs/ngx-tbl/blob/master/src/lib/interfaces/config.ts)> - Configurable options for the table
 
 #### Outputs
 load   _<EventEmitter<any>>_ - Emitted on load, search and pagination
@@ -77,3 +78,5 @@ edit   _<EventEmitter<any>>_ - Emit this while editing a row
 add    _<EventEmitter<any>>_ - Emit while adding a new row
   
 delete _<EventEmitter<any>>_ - Emit while deleting a row
+  
+  
