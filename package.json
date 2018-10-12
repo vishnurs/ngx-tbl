@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "package": "ng-packagr -p src/lib/ng-package.json"
+    "copy": "cp README.md package",
+    "package": "ng-packagr -p src/lib/ng-package.json && npm run copy"
   },
   "private": true,
   "dependencies": {

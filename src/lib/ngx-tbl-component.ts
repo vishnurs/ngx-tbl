@@ -103,7 +103,7 @@ export class NgxTblComponent {
 
   search() {
     this.subject.next(true);
-    this.debouncer.next(true)
+    this.debouncer.next()
     console.log('searchedd!!')
   }
 
@@ -144,7 +144,9 @@ export class NgxTblComponent {
   }
 
   loadData(currentPage: number = 1) {
+    setTimeout(() => {
     this.load.emit(this.getQueryParams(currentPage));
+    })
   }
 
   sortColumn(column: any) {
