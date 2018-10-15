@@ -12,6 +12,9 @@
 
 `npm install ngx-tbl --save`
 
+### Demo
+https://vishnurs.github.io/ngx-tbl/
+
 ### Quick Start
 
 ###### AppModule.ts
